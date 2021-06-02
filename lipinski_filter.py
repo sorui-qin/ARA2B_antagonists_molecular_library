@@ -1,3 +1,4 @@
+#This code is provided from https://gist.github.com/strets123/fdc4db6d450b66345f46#file-lipinski-py 
 
 '''
 Chemical data about a molecule.
@@ -20,7 +21,7 @@ def log_partition_coefficient(smiles):
     '''
     try:
         mol = Chem.MolFromSmiles(smiles)
-    except Exception, e:
+    except Exception:
         raise SmilesError('%s returns a None molecule' % smiles)
         
     return Crippen.MolLogP(mol)
