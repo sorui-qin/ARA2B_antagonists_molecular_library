@@ -84,3 +84,7 @@ def lipinski_pass(smiles):
         return False
     else:
         return True
+
+if __name__ == '__main__':
+    smi='CC(N=C1CO)=C(CCCC)N1CC(C=C2)=CC=C2C3=C(C4=NN=NN4)C=CC=C3'
+    print(lipinski_pass(smi))
