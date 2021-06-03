@@ -43,5 +43,3 @@ def compare(att_txt,frag_txt,savefile):
     saved_file(savefile,target_smi)
 
 compare(r'D:\科研\微科研\smiles比对\drd2.recap.txt',r'D:\科研\微科研\片段库\L8800_standrad.txt','drd2_frag')
-
-

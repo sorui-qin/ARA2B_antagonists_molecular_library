@@ -1,4 +1,4 @@
-#This code is provided from https://gist.github.com/strets123/fdc4db6d450b66345f46#file-lipinski-py 
+#This code is attributed from https://gist.github.com/strets123/fdc4db6d450b66345f46#file-lipinski-py 
 
 '''
 Chemical data about a molecule.
@@ -81,10 +81,22 @@ def lipinski_pass(smiles):
     '''
     passed, failed = lipinski_trial(smiles)
     if failed:
-        return False
+        return None
     else:
-        return True
+        return smiles
+
+def lipinski_filter(filename):
+    '''
+    Filt molecules in SMILES in txt file
+    '''
+    smi_list=[line.strip('\n') for line in open(filename,'r',encoding='utf-8')]
+    with open('{}_lipinski_filted.txt'.format(filename),'a+') as fin_file:
+        for smi in smi_list:
+            if lipinski_pass(smi):
+                fin_file.write(smi+'\n')
+            
+
 
 if __name__ == '__main__':
-    smi='CC(N=C1CO)=C(CCCC)N1CC(C=C2)=CC=C2C3=C(C4=NN=NN4)C=CC=C3'
-    print(lipinski_pass(smi))
+    filename=r'D:\科研\微科研\结果\腺苷受体\20210515_R6R9_L8800\smiles.txt'
+    lipinski_filter(filename)
