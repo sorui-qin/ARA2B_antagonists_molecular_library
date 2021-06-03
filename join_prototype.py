@@ -1,4 +1,4 @@
-import scaffold as usc
+import utils.scaffold as usc
 import rdkit.Chem as rkc
 from rdkit.Chem import AllChem
 from rdkit.Chem import Draw
