@@ -33,10 +33,10 @@ def write_results(scaffold_smi, decoration_file, file_name):
             all_smi_num=0
             for i, smile in enumerate(smiles):
                 f.write(smile + "\n")
-                mol = rkc.MolFromSmiles(smile)
-                scf = rkc.MolFromSmiles(scaffold)
-                sub = mol.GetSubstructMatches(scf)
-                Draw.MolToFile(mol, file_name + "_result/img/" + str(i) + ".png", size=(600, 600), highlightAtoms=sub[0] , legend=smile)
+                #mol = rkc.MolFromSmiles(smile)
+                #scf = rkc.MolFromSmiles(scaffold)
+                #sub = mol.GetSubstructMatches(scf)
+                #Draw.MolToFile(mol, file_name + "_result/img/" + str(i) + ".png", size=(600, 600), highlightAtoms=sub[0] , legend=smile)
                 all_smi_num += 1
         print('{0} results saved in {1}'.format(all_smi_num, file_name))
 
@@ -64,6 +64,6 @@ def write_results(scaffold_smi, decoration_file, file_name):
         print('Filename existed, results were saved in ./{}'.format(file_name))
         make_dir(smiles,scaffold,file_name)
 
-if __name__ == '__main__':
-    write_results('FC(F)(F)C1=C(C2=CC=C([*:0])C=C2)SC(NC3=CC=C(C=C3)C(O)=O)=N1',r'C:\Users\Sorui\Desktop\test.txt','20210318') 
+
+    
 

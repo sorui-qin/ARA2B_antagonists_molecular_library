@@ -151,4 +151,8 @@ def parse_args():
                         type=str, required=True)
     return parser.parse_args()
 
-write_results('NC1=NC(CC2=C([*:0])C=CC([*:1])=C2)=CN3C1=NC4=C3C=CC=C4',r'chemBL_L8800_filted.txt', '20200515_1.txt')
+def main():
+    '''Main Fuction when program run in Linux server.'''
+    args = parse_args()
+
+    write_results(args.scaffold_smiles, args.input_decorations_path, args.output_path)

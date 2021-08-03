@@ -15,10 +15,11 @@ def mole_proper(mol):
     num_hdonors = Lipinski.NumHDonors(mol)
     num_hacceptors = Lipinski.NumHAcceptors(mol)
     num_rotatable = Lipinski.NumRotatableBonds(mol)
+    num_aromatic = Lipinski.NumAromaticRings(mol)
     mol_weight = Descriptors.MolWt(mol)
     mol_logp = Crippen.MolLogP(mol)
     mol_TPSA = Descriptors.TPSA(mol)
-    proper= [num_hdonors, num_hacceptors, num_rotatable, mol_weight, mol_logp, mol_TPSA]
+    proper= [num_hdonors, num_hacceptors, num_rotatable, num_aromatic, mol_weight, mol_logp, mol_TPSA]
     return proper
 
 def save_excel(proper_list):
