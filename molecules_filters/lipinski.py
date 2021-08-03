@@ -94,9 +94,3 @@ def lipinski_filter(filename):
         for smi in smi_list:
             if lipinski_pass(smi):
                 fin_file.write(smi+'\n')
-            
-
-
-if __name__ == '__main__':
-    filename=r'D:\科研\微科研\结果\腺苷受体\20210515_R6R9_L8800\smiles.txt'
-    lipinski_filter(filename)
