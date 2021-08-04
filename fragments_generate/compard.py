@@ -1,4 +1,4 @@
-import rdkit
+import argparse
 import rdkit.Chem as rkc
 import re
 
@@ -38,8 +38,26 @@ def compare(att_txt,frag_txt,savefile):
         if "[*]"  in smi:
             attached_smilist.append(smi)
     
-    frag_smilist=read_txt(frag_txt)
+    frag_smili = read_txt(frag_txt)
+    frag_smilist = [standard_smi(smi) for smi in frag_smili]
     target_smi=compared_smi(attached_smilist,frag_smilist)
     saved_file(savefile,target_smi)
 
-compare(r'D:\科研\微科研\smiles比对\drd2.recap.txt',r'D:\科研\微科研\片段库\L8800_standrad.txt','drd2_frag')
+def parse_args():
+    """Parses input arguments."""
+    parser = argparse.ArgumentParser(description="Compared the attached SMILES with an given fragments library.")
+    parser.add_argument("--input-decorations-path", "-i",
+                        help="Path to the input file with sliced fragments library in txt format.", type=str, required=True)
+    parser.add_argument("--compared-decorations-path", "-c",
+                        help="Path to the input file with specific fragments library in txt format.", type=str, required=True)
+    parser.add_argument("--output-path-name", "-o",
+                        help="Name of the output file.",
+                        type=str, required=True)
+    return parser.parse_args()
+
+def main():
+    arg = parse_args()
+    compare(arg.input_decorations_path,arg.compared_decorations_path,arg.output_path_name)
+    
+if __name__ == '__main__':
+    main()
