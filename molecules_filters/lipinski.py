@@ -7,6 +7,7 @@ rules, etc...
 Uses rdkit
 '''
 
+import argparse
 from rdkit import Chem
 from rdkit.Chem import Crippen
 from rdkit.Chem import Lipinski
@@ -94,3 +95,17 @@ def lipinski_filter(filename):
         for smi in smi_list:
             if lipinski_pass(smi):
                 fin_file.write(smi+'\n')
+
+def parse_args():
+    """Parses input arguments."""
+    parser = argparse.ArgumentParser(description="The filter to chose the molecules obey Lipinski's Rules which stored in txt or smi format.")
+    parser.add_argument("--input-file-path", "-i",
+                        help="Path to the input file with molecules in SMILES.", type=str, required=True)
+    return parser.parse_args() 
+
+def main():
+    arg = parse_args()
+    lipinski_filter(arg.input_file_path)
+
+if __name__ == '__main__':
+    main()
