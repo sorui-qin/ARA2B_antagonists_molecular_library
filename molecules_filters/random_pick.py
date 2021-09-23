@@ -20,5 +20,5 @@ def write(filename, n):
     to_smi(filename, read(filename,n), n)
 
 if __name__ == '__main__':
-    filename= r"D:\科研\微科研\结果\R6R10_filted.smi"
+    filename= r"D:\Research\A2B\molecules\R8R10_filted.smi"
     write(filename, 2000)

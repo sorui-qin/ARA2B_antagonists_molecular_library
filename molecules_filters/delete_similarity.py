@@ -27,5 +27,5 @@ def write(filename):
             fi.write(i+'\n')
 
 
-filename=(r'D:\Research\A2B\Pharmacophore\allmole74.smi')
+filename=(r'D:\Research\A2B\Pharmacophore\nonxan_All.smi')
 write(filename)
